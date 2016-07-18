@@ -1,5 +1,5 @@
-Fusion Test CLI
-===============
+Fusion SyncStore Test CLI
+=========================
 
 Installation instructions
 
