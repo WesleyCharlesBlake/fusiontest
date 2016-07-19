@@ -11,7 +11,7 @@ program
   .option('-p, --password <password>', 'The password supplied by Fusion')
   .option('-H, --host [host]', 'The Fusion SyncStore endpoint url [https://za-feedstore.fusionagency.net]')
   .option('-v, --version [ver]', 'The Fusion SyncStore version [1]')
-  .option('--commit [token]', 'Optionally commit the commit token and get the next set of changes')
+  .option('-t, --token [token]', 'Optionally commit the commit token and get the next set of changes')
   .parse(process.argv);
 
 // some defaults
@@ -29,8 +29,6 @@ const options = {
   password: program.password,
   host,
   basepath,
-  commit: !!program.commit,
 };
-
 const params = program.token ? { commitToken: program.token } : null;
 getChanges(options, params);
