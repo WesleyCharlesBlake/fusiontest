@@ -14,8 +14,8 @@ Options:
 
     -h, --help                 output usage information
     -V, --version              output the version number
-    -c, --clientid <clientid>  The client id supplied by Fusion
-    -p, --password <password>  The password supplied by Fusion
+    -c, --clientid <clientid>  The client id supplied by Fusion (required)
+    -p, --password <password>  The password supplied by Fusion (required)
     -H, --host [host]          The Fusion SyncStore endpoint url [https://za-feedstore.fusionagency.net]
     -v, --version [ver]        The Fusion SyncStore version [1]
-    --commit [token]           Optionally commit the commit token and get the next set of changes
+    -t, --token [token]        Commit the commit token and get the next set of changes (optional)
