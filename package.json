@@ -1,7 +1,7 @@
 {
-  "name": "fusion-test",
+  "name": "fusiontest",
   "version": "1.0.0",
-  "description": "",
+  "description": "A Fusion SyncStore Test CLI",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -9,14 +9,38 @@
   "bin": {
     "fusiontest": "index.js"
   },
-  "author": "",
-  "license": "ISC",
+  "eslintConfig": {
+    "parser": "babel-eslint",
+    "parserOptions": {
+      "allowImportExportEverywhere": true
+    },
+    "extends": [
+      "airbnb"
+    ],
+    "rules": {
+      "strict": 0,
+      "no-console": 0
+    }
+  },
+  "author": "EdgeCase Software",
+  "license": "UNLICENSED",
   "dependencies": {
     "commander": "^2.9.0",
     "crypto": "0.0.3",
+    "eslint-plugin-import": "^1.11.0",
+    "eslint-plugin-jsx-a11y": "^2.0.1",
+    "eslint-plugin-react": "^5.2.2",
     "fs": "0.0.2",
     "log-buffer": "0.0.3",
     "querystring": "^0.2.0",
     "request": "^2.73.0"
+  },
+  "devDependencies": {
+    "babel-eslint": "^6.1.2",
+    "eslint": "^3.1.1",
+    "eslint-config-airbnb": "^9.0.1",
+    "eslint-plugin-import": "^1.11.0",
+    "eslint-plugin-jsx-a11y": "^2.0.1",
+    "eslint-plugin-react": "^5.2.2"
   }
 }
