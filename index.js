@@ -7,11 +7,11 @@ require('log-buffer');
 
 program
   .version('1.0.0')
-  .option('-c, --clientid <clientid>', 'The client id supplied by Fusion')
-  .option('-p, --password <password>', 'The password supplied by Fusion')
+  .option('-c, --clientid <clientid>', 'The client id supplied by Fusion (required)')
+  .option('-p, --password <password>', 'The password supplied by Fusion (required)')
   .option('-H, --host [host]', 'The Fusion SyncStore endpoint url [https://za-feedstore.fusionagency.net]')
   .option('-v, --version [ver]', 'The Fusion SyncStore version [1]')
-  .option('-t, --token [token]', 'Optionally commit the commit token and get the next set of changes')
+  .option('-t, --token [token]', 'Commit the commit token and get the next set of changes (optional)')
   .parse(process.argv);
 
 // some defaults
