@@ -3,7 +3,7 @@
 
 const fusion = require('./fusion.js');
 const program = require('commander');
-require('log-buffer');
+const chalk = require('chalk');
 
 program
   .version('1.0.0')
@@ -14,15 +14,18 @@ program
   .option('-t, --token [token]', 'Commit the commit token and get the next set of changes (optional)')
   .parse(process.argv);
 
-// some defaults
+const missing = [];
+if (!program.clientid) missing.push('- clientid is required');
+if (!program.password) missing.push('- password is required');
+
+if (missing.length) {
+  console.error(chalk.red(missing.join('\n')));
+  return;
+}
+
+// defaults
 const host = program.host || 'https://za-feedstore.fusionagency.net';
 const basepath = `/v${program.ver || 1}/sync`;
-
-const getChanges = (options, params) => {
-  fusion.post('GetChanges', options, params, (data) => {
-    console.log(data);
-  });
-};
 
 const options = {
   clientid: parseInt(program.clientid, 10),
@@ -31,4 +34,7 @@ const options = {
   basepath,
 };
 const params = program.token ? { commitToken: program.token } : null;
-getChanges(options, params);
+
+fusion.post('GetChanges', options, params, (chunk) => {
+  console.log(chunk);
+});

@@ -2,6 +2,7 @@ const request = require('request');
 const qs = require('querystring');
 const crypto = require('crypto');
 const path = require('path');
+const chalk = require('chalk');
 
 const z = (val) => (`0${val}`).slice(-2);
 
@@ -41,7 +42,7 @@ const post = (method, options, params, callback) => {
     },
   };
   request(postOptions)
-    .on('error', (err) => console.error(err))
+    .on('error', (err) => console.error(chalk.red(err)))
     .on('data', (chunk) => (typeof callback === 'function') && callback(chunk.toString('utf8')));
 };
 
